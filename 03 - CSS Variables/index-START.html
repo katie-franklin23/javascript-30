@@ -72,13 +72,18 @@
     </style>
 
     <script>
-      const inputs = document.queryselectorAll('.controls input')
+      const inputs = document.querySelectorAll('.controls input')
 
-      // const suffix = this dataset;
-      console.log(this.dataset)
+      function handleUpdate() {
+        const suffix = this.dataset.sizing || ''
+        document.documentElement.style.setProperty(
+          `--${this.name}`,
+          this.value + suffix
+        )
+      }
 
       inputs.forEach((input) => input.addEventListener('change', handleUpdate))
-      nputs.forEach((input) =>
+      inputs.forEach((input) =>
         input.addEventListener('mousemove', handleUpdate)
       )
     </script>
